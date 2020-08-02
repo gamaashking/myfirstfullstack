@@ -3,58 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>CSS cards</title>
     <style>
-        body{
-            background-color: #f3d5d5;
-        }
-    .htmlmap{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 50px;
-        margin-bottom: auto;
-       width: auto;
-      
-      }
-      
-    .appbar{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
+                    .box{
+                width: 300px;
+                border: 3px solid white;
+                margin: 20px;
+                padding: 14px;
+                border-radius: 15px;
+                background-color: white;
+                float: left;
 
-</style>    
-</head>
-<body>
-    <img class="appbar" src="./image/updated website bar.png"width="1500px" height="100px" alt="website bar not found"
 
-    usemap="#this">
-    <map id="#this"name="this">
-        <area shape="rect" coords="21,9,170,166" href="index.html" alt="image not found">
-        <area shape="rect" coords="186,16,434,87" href="./practicle/First Assignment.html" alt="image not found">
-        <area shape="rect" coords="442,14,709,83" href="./practicle/practicle 2.html" alt="image not found">
-        <area shape="rect" coords="716,13,986,90" href="./practicle/third.html" alt="image not found">
-        <area shape="rect" coords="990,10,1243,88" href="./practicle/Practicle-4.html" alt="image not found">
-        <area shape="rect" coords="1249,16,1483,87" href="#" alt="image not found">
-    </map>
-    <div>
-        <h1 style="text-align: center; color:blue;" >Introdution to Front-End Technology </h1>
-            <img class="htmlmap" src="./image/html css js image map assignment.jpg" alt="image not found"
-            usemap="#null">
-            
-<map id="#null"name="null">
-    <area  alt="" title="HTML" href="./image/htmlIntro.html" coords="19,9,173,166" shape="rect">
-    <area  alt="" title="CSS" href="./image/cssIntro.html" coords="289,93,91" shape="circle">
-    <area  alt="" title="JS" href="./image/jsIntro.html" coords="23,196,172,339" shape="rect">
-    <area alt="" title="BOOTSTRAP" href="./image/Bootstrap.html" coords="233,226,287,204,344,222,336,299,289,330,239,302" shape="poly">
-</map>
-                <h2 style="text-align: center; color: red;">Click to any part of logo to know more about these Technologys</h2>
+
+            }
+            .box img{
+                display: block;
+                width: 300px;
+                height: 200px;
+                border-radius: 15px;
+            }
+            .box a{
+                display: block;
+                width: 300px;
+                height: 30px;
+                border: 1px solid black;
+                text-align: center;
+                background-color: red;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                
+
+            }
+            a :hover{
+                display: block;
+                background-color: green;
+                width: auto;
+                
+            }
+            .box a span{
+                display: block;
+                height: 32px;
+                width: 352;
+                border-radius: 5px;
         
+               
+              
+                
+                font-size: 17px;
+                font-weight: bold;
+
+            }
+    </style>
+</head>
+<body style="background-color: grey;">
+<div class="container">
+    <h1 style="text-align: center; font-weight: bold;">
+        PRACTICLE-6: CREATE FOLLOWING LAYOUT USING CSS LAYOUT PROPERTIES
+    </h1>
+    <div class="box">
+        <img src="./image/introduction to HTML.png" alt="image not found">
+        <h2 style="text-align: center; font-weight: 700;">Introduction To HTML</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minima cupiditate ipsum, sint consequuntur reprehenderit!
+        </p>
+        <a href="./image/htmlIntro.html"><span>READ MORE</span></a>
+
+    </div>
+
+    <div class="box">
+        <img src="./image/introduction to CSS.jpg" alt="image not found">
+        <h2 style="text-align: center; font-weight: 700;">INTRODUCTION TO CSS</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minima cupiditate ipsum, sint consequuntur reprehenderit!
+        </p>
+        <a href="./image/cssIntro.html"><span>READ MORE</span></a>
+
+    </div>
+    <div class="box">
+        <img src="./image/Introduction-to-JavaScript-with-complete-Guide-1.jpg" alt="image not found">
+        <h2 style="text-align: center; font-weight: 700;">Introduction To JavaScript</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minima cupiditate ipsum, sint consequuntur reprehenderit!
+        </p>
+        <a href="./image/jsIntro.html"><span>READ MORE</span></a>
+
+    </div>
+    <div class="box">
+        <img src="./image/introducion to BOOTSTRAP.png" alt="image not found">
+        <h2 style="text-align: center; font-weight: 700;">Introduction To BootStrap</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minima cupiditate ipsum, sint consequuntur reprehenderit!
+        </p>
+        <a href="./image/Bootstrap.html"><span>READ MORE</span></a>
+
     </div>
     
-
+</div>
     
 </body>
 </html>
