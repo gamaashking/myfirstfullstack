@@ -1,355 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Layout</title>
-    <style>
-        *{
-            margin: 0px;
-            padding: 0px;
-        }
-        .container{
-            border: 5px solid lightgray;
-            width: 1000px;
-            margin: 0px auto;
-            padding: 5px;
-           
-
-
-        }
-        .header{
-            height: 40px;
-            border: 5px solid grey;
-            
-            background-color: gray;
-            color: white;
-            margin-bottom: 5px;
-            display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        font-weight: bold;
-
-
-        
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
     }
-    .Banner{
-        height: 400px;
-        background-color: lightblue;
-        
-        border: 5px solid lightblue;
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 40px;
-        font-weight: bold;
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+
+      font-size: 40px;
+      width: 1500px;
+      /* padding: 15px; */
+      margin: 0 auto;
+    }
+
+    #header {
+
+      width: 100%;
+      height: 100px;
+      margin: 0 20px;
+      padding: 0;
+      /* display:flex;
+      justify-content: center;
+      align-items: center; */
+      position: sticky;
+      top: 0;
 
     }
-    .section1{
-        
-       
-       text-align: center;
-       margin-bottom: 15px;
-       
-       padding-left: 10px;
-       padding-right: 10px ;
-       
+
+    #header ul {
+
+      list-style: none;
+      background-color: grey;
+      /* height:200px; */
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
     }
-    .section1::after{
-        content: "";
-       display: block;
-       clear: both;
+
+    #header ul li {
+      display: inline-block;
+
 
     }
-    .team{
-       height: 200px;
-        border: 3px solid orange;
-        background-color: orange;
-        width: 200px;
-        border-radius: 50%;
-        
-        float: left;
-        margin: 10px 17px;
-        
-       
 
+    #header ul li a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 15px 20px;
+      margin: 20px auto;
+      font-weight: bold;
+      text-align: center;
+
+
+      /* width:100px;      */
     }
-    
 
-    .team{
-       height: 200px;
-        border: 3px solid orange;
-        background-color: orange;
-        width: 200px;
-        border-radius: 50%;
-        margin: 10px 17px;
-        
-       
+    #header ul li a:hover {
+      background-color: black
+    }
+
+    #banner {
+      width: 96%;
+      height: 600px;
+      margin: 35px;
+      padding: 20px;
+
+      color: white;
+      background-image: url(./image/background.jpg);
+      background-size: cover;
+
 
     }
 
 
-    .team{
-       height: 200px;
-        border: 3px solid orange;
-        background-color: orange;
-        width: 200px;
-        border-radius: 50%;
-        margin: 10px 17px;
-        
-       
+    #section1 {
+      width: 100%;
+      height: 500pxpx;
+      margin: 25px;
 
     }
 
-
-    .team{
-       height: 200px;
-        border: 3px solid orange;
-        background-color: orange;
-        width: 200px;
-        border-radius: 50%;
-        margin: 10px 17px;
-        
-       
+    #section1 img {
+      width: 300px;
+      height: 300px;
+      float: left;
+      border-radius: 50%;
+      margin: 15px;
+      margin-left: 50px;
+      margin-bottom: 20px;
 
     }
-    .section3{
-        
-       
-        text-align: center;
-        margin-bottom: 15px;
-        
-        padding-left: 10px;
-        padding-right: 10px ;
-        
- 
-     }
-     .section3::after{
-         content: "";
-        display: block;
-        clear: both;
- 
-     }
-     .bar{
-        height: 200px;
-         border: 3px solid red;
-         background-color: red;
-         width: 200px;
-         
-         float: left;
-         margin: 10px 17px;
-         
-        
- 
-     }
-     
- 
-     .bar{
-        height: 200px;
-         border: 3px solid red;
-         background-color: red;
-         width: 200px;
-         
-         margin: 10px 17px;
-         
-        
- 
-     }
- 
- 
-     .bar{
-        height: 200px;
-         border: 3px solid red;
-         background-color: red;
-         width: 200px;
-         
-         margin: 10px 17px;
-         
-        
- 
-     }
- 
- 
-     .bar{
-        height: 200px;
-         border: 3px solid red;
-         background-color: red;
-         width: 200px;
-         
-         margin: 10px 17px;
-         
-        
- 
-     }
-    .section2{
-        text-align: center;
-       margin-bottom: 15px;
-      
-        
+
+    #section2 {
+      margin: 30px auto;
+      /* padding: 400px; */
+      width: 100%;
+      height: 1000px;
     }
-    .section2::after{
-        content: "";
-       display: block;
-       clear: both;
+
+    #left-side {
+      width: 48%;
+      margin-top: 40px;
+      background-color: grey;
+      color: aliceblue;
+      text-align: justify;
+      float: left;
+      height: 875px;
+      overflow: hidden;
+      padding: 14px;
+      font-size: 40px;
 
     }
-    .text{
-        margin: 15px;
-        font-size: 30px;
-        font-weight: bold;
 
-    }
-    .left{
-        width: 50%;
-        height: 310px;
-        border: solid grey;
-        display: fles;
-        align-items: center;
-        justify-content: center;
-        background-color: gray;
-        float: left;
-        font-size: 30px;
-        font-weight: bold;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-       
-    }
-    .right{
-        width: 49%;
-        float: right;
-
-    }
-    .article{
-        border: solid maroon;
-        height: 90px;
-        margin-bottom: 10px;
-        display: fles;
-        align-items: center;
-        justify-content: center;
-        background-color: maroon;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        font-weight: bold;
-        color: white;
-
-    }
-    .article{
-        border: solid maroon;
-        height: 90px;
-        margin-bottom: 10px;
-        display: fles;
-        align-items: center;
-        justify-content: center;
-        background-color: maroon;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        font-weight: bold;
-        color: white;
-
-    }
-    .article{
-        border: solid maroon;
-        height: 90px;
-        display: fles;
-        align-items: center;
-        justify-content: center;
-        background-color: maroon;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        font-weight: bold;
-        color: white;
-
-    }
-    .article{
-        border: solid maroon;
-        height: 90px;
-        display: fles;
-        align-items: center;
-        justify-content: center;
-        background-color: maroon;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        font-weight: bold;
-        color: white;
+    #right-side {
+      float: right;
+      width: 48%;
+      height: 850px;
+      margin-top: 20px;
 
 
     }
-    .section4{
-        text-align: center;
-       margin-bottom: 15px;
-       margin: 15px;
-        font-size: 30px;
-        font-weight: bold;
-      
-        
+
+    #right-side img {
+      display: block;
+      height: 280px;
+      width: 700px;
+      margin-top: 20px;
     }
-    .footer{
-            height: 40px;
-            border: 5px solid pink;
-            
-            background-color: pink;
-            color: black;
-            font-size: 20px;
-            font-weight: bold;
-            
-            display: flex;
-        align-items: center;
-        justify-content: center;
 
+    .article {
+      background-size: 100% 270px;
+      width: 100%;
+      height: 270px;
+      margin-bottom: 15px;
+      margin-top: 37px;
+    font-weight: bolder;
+      display: flex;
+      justify-content: center;
+      align-items: top;
 
-        
+      font-size: 40px;
+      color: blsack;
+
     }
-    
-    </style>
-    
 
+    #p1 {
+      background-image: url(./image/p1.jpg);
+
+    }
+
+    #p2 {
+      background-image: url(./image/p2.jpeg);
+
+    }
+
+    #p3 {
+      background-image: url(./image/p3.jpg);
+
+    }
+
+    img {
+      display: block;
+    }
+
+    #section3 {
+      /* height:450px; */
+      margin: 50px 0;
+
+      width: 100%;
+      height: 800px;
+      text-align: justify;
+
+
+    }
+
+    #section3 h1 {
+      margin-left: 100px;
+      margin-top: 400px;
+      /* text-align:center; */
+    }
+
+
+    .box {
+      background-color: grey;
+      font-size: 30px;
+      width: 310px;
+      height: 540px;
+      padding: 5px;
+      float: left;
+      margin: 20px;
+      border-radius: 8px;
+    }
+
+    #section3 img {
+
+      margin-bottom: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      height: 160px;
+      width: 100%
+    }
+
+    #section3 a {
+      display: block;
+      font-size: 20px;
+      padding: 2px;
+      text-decoration: none;
+      text-align: center;
+      background-color: red;
+      border-radius: 5px;
+      width: 310px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 17px;
+
+      color: aliceblue;
+    }
+
+    #section3 a:hover {
+      background-color: blue;
+    }
+
+    #section3 h2 {
+      text-align: center;
+      color: whitesmoke;
+    }
+
+    #main {
+      width: 95%;
+      height: 140px;
+      background-color: plum;
+      margin-bottom: 15px;
+
+      display: flex;
+      justify-content: center;
+
+      align-items: center;
+      font-size: 40px;
+      color: white;
+      display: block;
+      text-align: center;
+      padding: 40px;
+
+    }
+
+    #main a {
+      padding: 10px;
+    }
+
+    #main p {
+      display: block;
+    }
+  </style>
 </head>
-<body style="background-color: white;">
-    <div class="container">
-    <div class="header">Header</div>
-    <div class="Banner">Banner</div>
-    <div class="section1">
-        <div class="text">Section-1</div>
-        <div class="team"></div>
-        <div class="team"></div>
-        <div class="team"></div>
-        <div class="team"></div>
+
+<body>
+
+
+  <a name="top"></a>
+  <div class="container">
+    <div id="header">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#tech">Technologies</a></li>
+        <li><a href="#con">Contact</a></li>
+      </ul>
+
     </div>
-    <div class="section2">
-        <div class="text">Section-2</div>
-        <div class="left">
-            Main Content
+    <div id="banner">
+      <!-- <img src="../img/emile-perron-xrVDYZRGdw4-unsplash.jpg" alt=""> -->
+      <h2>Practical-8</h2>
+    </div>
+    <div id="section1">
+      <a name="team">
+        <h1>TEAM MEMBERS</h1>
+      </a>
+      <img src="./image/team members1.png" alt="">
+      <img src="./image/team members2.png" alt="">
+      <img src="./image/team members3.png" alt="">
+      <img src="./image/team members4.png" alt="">
+
+    </div>
+
+    <div id="section2">
+      <a name="about">
+        <h1>ABOUT US</h1>
+      </a>
+      <div id="left-side">
+        <h2>About Projects</h2>
+        <br>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium tenetur temporibus voluptatibus neque quaerat sequi fugiat ratione molestias modi ea distinctio illum odit, repellendus maiores ducimus excepturi nobis expedita earum minus beatae corrupti quos suscipit officiis? Ratione magnam, nisi, voluptatum labore cumque officiis aliquid recusandae optio, officia repellendus cum quibusdam.
+        </p>
+      </div>
+      <div id="right-side">
+
+        <div class="article" id="p1"> Project-1 </div>
+        <div class="article" id="p2"> Project-2</div>
+        <div class="article" id="p3"> Project-3</div>
+
+
+
+      </div>
+    </div>
+    <div id="section3">
+        <a name="tech"></a>
+      <h1>TECHNOLOGIES USED</h1>
+      </a>
+      <div id="content">
+        <div class="box">
+          <img src="./image/introduction to HTML.png">
+          <h3>Introduction to html</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, in? Eos fuga ea quia consequatur!</p>
+          <a href="html.html">READ MORE</a>
         </div>
-        <div class="right">
-            <div class="article">Article-1</div>
-            <div class="article">Article-2</div>
-            <div class="article">Article-3</div>
+        <div class="box">
+          <img src="./image/introduction to CSS.jpg">
+          <h3>Introduction to CSS</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, in? Eos fuga ea quia consequatur!</p>
+          <a href="css.html">READ MORE</a>
         </div>
+        <div class="box">
+          <img src="./image/Introduction-to-JavaScript-with-complete-Guide-1.jpg">
+          <h3>Introduction to Javascript</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, in? Eos fuga ea quia consequatur!</p>
+          <a href="js.html">READ MORE</a>
+        </div>
+        <div class="box">
+          <img src="./image/introducion to BOOTSTRAP.png">
+          <h3>Introduction to Bootstrap</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, in? Eos fuga ea quia consequatur!</p>
+          <a href="bootstrap.html">READ MORE</a>
+        </div>
+      </div>
+
     </div>
-    <div class="section3">
-        <div class="text">Section-3</div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+
+    <div id="footer">
+      <a name="con">
+        <h1>
+          CONTACT
+        </h1>
+      </a>
+      <div id="main">
+
+
+
+        <p>All Right Reserved To Developer &copy;
+          <a href="https://www.beta-labs.in/">beta-labs</a>
+        </p>
+        <br>
+        <a href="#">Back to top</a>
+      </div>
     </div>
-    <div class="section4">Section-4</div>
-    <div class="footer">Footer</div>
-</div>
-    
+  </div>
 </body>
+
 </html>
