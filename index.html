@@ -1,93 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To do list | Practical-16</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <style>
-        body {
-            background-color: grey;
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
         }
+        body
+        {
+            background-color: cornflowerblue;
+        }
+        .container
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
 
-        h1 {
-            color: white;
+        }
+        h1{
             text-align: center;
-            margin-top: 100px;
-            font-size: 70px;
-        }
-       
-
-        button {
-            background-color: red;
-            width: 60px;
-            height: 60px;
-            margin: auto;
-            margin-left: 530px;
-        }
-        #pos{
-            margin-left: 70px;
-        }
-
-        input {
-            position: relative;
-            left: 45px;
-            width: 50px;
-            background-color: grey;
+            color: floralwhite;
             font-size: 40px;
-            color: yellow;
-            /* margin-left: 150px; */
-            border: 0;
+            font-weight: bolder;
+            margin: 20px;
         }
-        
+        #input
+        {
+            outline: none;
+            height: 5vh;
+            margin: 0px;
+            /* color: white; */
+            font-size: 15px;
+        }
+        .to-do-list
+        {
+            width: 25%;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-add
+        {
+            height:5vh;
+            padding: 10px;
+            margin-left:0;
+            background-color: aqua; 
+            outline: none;
+            color: azure;
+            border-radius: 5px;
+        }
+        .todo li{
+            list-style: none;
+            font-size: 35px;
+            flex: 1;
+            color:white;
+            margin-left: 10px;
+        }
+        .todo .check-btn{
+            padding:5px;
+            color:green;
+            background-color: greenyellow;
+            outline: none;
+            border-radius: 5px;
+        }
+        .todo .delete-btn{
+            padding:5px;
+            margin-right: 10px;
+            color: red;
+            background-color: salmon;
+            outline: none;
+        }
+        i{
+            pointer-events: none;
+        }
+        .check{
+            text-decoration: line-through;
+            opacity: 0.5;
+    }
     </style>
 </head>
-
 <body>
-    <h1>COUNTER</h1>
-
-   <div class="container">
-    <button id="neg"> - </button>
-    <input type="text" id="quantity" readonly="" value="0">
-    <button id="pos"> + </button>
-   </div>
-
-
+    <h1>To-do list</h1>
+    <div class="container">
+        <form>
+            <input type="text" id="input">
+            <button class="btn-add"><i class="fa fa-plus"></i></button>
+        </form>
+        <ul class="to-do-list"></ul>
+    </div>
     <script>
-
-        var add = document.getElementById("pos");
-        var sub = document.getElementById("neg");
-        var qty = document.getElementById("quantity");
-
-        sub.setAttribute("disabled", "disabled");
-
-
-        add.addEventListener('click', () => {
-            var valuecount = parseInt(qty.value) + 1;
-            qty.value = valuecount;
-
-
-            if (valuecount >= 1) {
-                sub.removeAttribute("disabled", "disabled");
-            }
-
-        });
-
-
-        sub.addEventListener('click', () => {
-            var valuecount = parseInt(qty.value) - 1;
-            qty.value = valuecount;
-
-
-            if (valuecount == 0) {
-                sub.setAttribute("disabled", "disabled");
-            }
-
-        });
-
-
+        var todo = document.querySelector('.to-do-list');
+        var addbtn = document.querySelector('.btn-add');
+        addbtn.addEventListener("click",createtodo);
+        var input = document.getElementById("input");
+        function createtodo(e)
+        {
+           e.preventDefault();
+           if(input.value)
+           {
+               var newDiv = document.createElement("div");
+               newDiv.classList.add("todo");
+               var li = document.createElement("li");
+               li.innerHTML = input.value;
+               var checkBtn = document.createElement("button");
+               checkBtn.classList.add("check-btn");
+               checkBtn.addEventListener('click',function(){
+                   li.classList.toggle('check');
+               })
+               checkBtn.innerHTML = '<i class =" fa fa-check"></i>';
+               var deleteBtn = document.createElement("button");
+               deleteBtn.classList.add("delete-btn");
+               deleteBtn.addEventListener('click',function(){
+                   todolist.removeChild(newDiv);
+               })
+               deleteBtn.innerHTML = '<i class ="fa fa-trash"></i>';
+               newDiv.appendChild(li);
+               newDiv.appendChild(checkBtn);
+               newDiv.appendChild(deleteBtn);
+               todo.appendChild(newDiv);
+               input.value ="";
+           } 
+           else{
+               alert('Enter Value First');
+           }
+        }
     </script>
-
 </body>
-
 </html>
