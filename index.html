@@ -1,160 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>Practical-16</title>
+    <title>Live-clock Greeting with local storage</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        *{
-            padding: 0;
+        * {
+            padding: 0px;
             margin: 0;
             box-sizing: border-box;
         }
-        body{
-            background-image: linear-gradient(to right,#e05297,#52057b);
-            color: white;
-            min-height: 100vh;
-        }
-        form,h1{
-            height: 20vh;
-            display: flex;
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex ;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            color: black;
+            height: 100vh;
         }
-        h1{
-            font-size: 40px;
+        #time
+        {
+            font-size: 8rem; 
+            /* 1rem=19px; */
         }
-       form input,form button{
-           padding: 10px;
-           border: none;
-           font-size: 24px;
-           background: white;
-           outline: none;
-       } 
-       form button{
-           color: blue;
-           background-color: white;
-           cursor: pointer;
-       }
-       form button:hover{
-           color: white;
-           background-color: skyblue;
-       }
-       .todo-container{
-           display: flex;
-           justify-content: center;
-           align-items: center;
-       }
-       .todo-list{
-           width: 25%;
-           list-style-type: none;
-       }
-       .todo{
-           margin: 8px;
-           background-color: white;
-           color: black;
-           font-size: 24px;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-       }
-       .todo-item{
-           flex: 1;
-           margin: 0 8px;
-       }
-       .plus-btn,.del-btn{
-           background-color: green;
-           color: white;
-           padding: 16px;
-           font-size: 16px;
-           border: none;
-           outline: none;
-           cursor: pointer;
-       }
-       .del-btn{
-           background-color: red;
-       }
-      .fa-check,.fa-trash{
-          pointer-events: none;
-      }
-      .completed{
-          text-decoration: line-through;
-          opacity: 0.5;
-      }
-      
+        h1
+        {
+            margin-bottom: 16px;
+        }
+        h2{
+            font-size:3rem;
+            opacity: .5;
+        }
     </style>
 </head>
+
 <body>
-    <h1 id="heading">FullStack To-Do List</h1>
-    <form >
-        <input type="text" class="todo-input" />
-        <button class="todo-button">
-            <i class="fa fa-plus-square" aria-hidden="true"></i>
-        </button>
-    </form>
-    <div class="todo-container">
-    <ul class="todo-list">
+    <time id="time"></time>
+    <h1 id="greeting"></h1>
+    <h2 id="name" contenteditable="true"></h2>
+    <h3 id="date"></h3>
+    <script>
+        //selectors
+        const time=document.getElementById('time');
+        const greeting=document.getElementById('greeting');
+        const name=document.getElementById('name');
+        const date=document.getElementById('date');
 
-    </ul>
-</div>
+        //event handlers
+        name.addEventListener("keypress",setName);
+        name.addEventListener("blur",setName);
+
+        //Functions
+        function showtime()
+        {
+            let today= new Date();
+            let hours= today.getHours();
+            let minutes= today.getMinutes();
+            let seconds= today.getSeconds();
+            let todayDate =today.toDateString();
+            //ampm format
+            const AmPm= hours > 12 ? 'PM' : 'AM';
+            // 12 hrs format
+            hours = hours % 12 || 12;
+
+            //output time
+            time.innerHTML = `${addZero(hours)}<span>:</span>${addZero(minutes)}<span>:</span>${addZero(seconds)} ${AmPm}`;
+            date.innerHTML=`${todayDate}`;
+            setTimeout(showtime,1000);
+        }
+        function addZero(n)
+        {
+            return((parseInt(n,10) < 10 ? '0' : '')+n);
+        }
+
+        //set greeting
+        function setGreeting()
+        {
+            let today= new Date(2020, 12, 12, 10, 12, 12);
+            let hours= today.getHours();
+            if(hours<12)
+            {
+                document.body.style.backgroundImage= 'url("../image/morning.jpg")';
+                document.body.style.backgroundSize= 'cover';
+                greeting.innerHTML="Good Morning";
+
+            }
+            else if(hours<18)
+            {
+                document.body.style.backgroundImage= 'url("../image/afternoon.jpg")';
+                document.body.style.backgroundSize= 'cover';
+                greeting.innerHTML="Good Afternoon";
+
+            }
+            else 
+            {
+                document.body.style.backgroundImage= 'url("../image/night.jpg")';
+                document.body.style.backgroundSize= 'cover';
+                document.body.style.color= 'orange';
+                greeting.innerHTML="Good Evening";
+
+            }
+        }
+
+        function getName()
+        {
+            if(localStorage.getItem("mykeyname")===null)
+            {
+                name.innerHTML='[Enter Name]';
+            }
+            else
+            {
+                name.innerHTML=localStorage.getItem("mykeyname");
+            }
+        }
+        function setName(e)
+        {
+            if(e.type==="keypress")// enter keypress
+            {
+                if(e.keyCode===13)
+                {
+                    localStorage.setItem("myKeyname", e.target.innerHTML);
+                    name.blur();
+                }
+            }
+            else//blur event
+            {
+                localStorage.setItem("mykeyname", e.target.innerHTML);
+            }
+        }
+        //Function Call
+        showtime();
+        setGreeting();
+        getName();
+        setName();
+    </script>
 </body>
-<script>
-    
-    
-    var todoinput=document.querySelector(".todo-input");
-    var todobutton=document.querySelector(".todo-button");
-    var todolist=document.querySelector(".todo-list");
 
-    
-    todobutton.onclick=create;
-    todolist.onclick=checkdelete;
-
-    function create(e)
-    {
-        e.preventDefault();
-        if(todoinput.value==="")
-        {
-            alert("Input field cannot be empty!");
-        
-        }
-        else if(todoinput.value!="")
-        {
-        var newdiv=document.createElement("div");
-        newdiv.classList.add("todo");
-
-        var newli=document.createElement("li");
-        newli.classList.add("todo-item");
-        newli.innerHTML=todoinput.value;
-        newdiv.appendChild(newli);
-
-        var newbtn=document.createElement("button");
-        newbtn.classList.add("plus-btn");
-        newbtn.innerHTML='<i class="fa fa-check"></i>';
-        newdiv.appendChild(newbtn);
-
-        var delbtn=document.createElement("button");
-        delbtn.classList.add("del-btn");
-        delbtn.innerHTML='<i class="fa fa-trash"></i>';
-        newdiv.appendChild(delbtn);
-
-        todolist.appendChild(newdiv);
-        todoinput.value="";
-    }
-    }
-    function checkdelete(e){
-        var item =e.target;
-        if(item.classList[0]==="del-btn")
-        {
-            var parent=item.parentNode;
-            parent.remove();
-        }
-        if(item.classList[0]==="plus-btn")
-        {
-            var parent=item.parentNode;
-           parent.classList.toggle("completed");
-        }
-    }
-
-</script>
 </html>
